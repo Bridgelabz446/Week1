@@ -3,15 +3,15 @@ package DataStructure;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class SimpleBalancedParethesis {
+public class BalancedParethesis {
 	  
 		   static  Stack <Character>stack= new <Character> Stack();
 			
 			public static void main(String[] args) {
 			
-		   Scanner scanner=new Scanner(System.in);
+		   Scanner sc=new Scanner(System.in);
 		   System.out.println("enter the symbols");
-		   String str=scanner.next();
+		   String str=sc.next();
 		   char ch[]=str.toCharArray();
 		   boolean res=isParanthesis(ch);
 		   if(res)
@@ -36,11 +36,25 @@ public class SimpleBalancedParethesis {
 					{
 						char c=stack.pop();	
 					}
-					
-					if(ch[i]=='{'||ch[i]=='}'||ch[i]=='['||ch[i]==']')
+					if(ch[i]=='{')
 					{
-						return false;	
-					}	
+						stack.push('{');
+						
+					}
+					if(ch[i]=='}')
+					{
+						char c=stack.pop();	
+					}
+					if(ch[i]=='[')
+					{
+						stack.push('[');
+						
+					}
+					if(ch[i]==']')
+					{
+						char c=stack.pop();	
+					}
+						
 				}
 				
 				if(stack.isEmpty())
